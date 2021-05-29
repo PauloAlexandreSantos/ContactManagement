@@ -11,13 +11,22 @@
                     </div>
                 </div>
             </div>
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
             <div class="col-12 mt-2">
                 <div class="card">
                     <div class="card-body">
                         <form class="row g-3 needs-validation" action="{{ route('site.contact.store') }}" method="post">
                             @csrf
                             @include('forms._formContact.index')
-                            
+
                             <div class="col-md-12 text-center">
                                 <button class="btn btn-dark col-md-3" type="submit">Cadastrar</button>
                             </div>

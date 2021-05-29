@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ContactPostRequest;
 use App\Models\Contact;
 use Illuminate\Http\Request;
 
@@ -37,11 +38,12 @@ class ContactController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ContactPostRequest $request)
     {
         //
+        $request->validated();
         $data = $request->all();
-        $response = Contact::create($data);
+         Contact::create($data);
         return redirect()->route('site.contact.index');
     }
 
@@ -78,9 +80,10 @@ class ContactController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ContactPostRequest $request, $id)
     {
         //
+        $request->validated();
         $data = $request->all();
         Contact::find($id)->update($data);
         return redirect()->route('site.contact.index');

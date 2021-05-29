@@ -51,14 +51,19 @@
 
                             </div>
 
-                    </div>
-                </div>
+                            <div class="col-md-12 text-center mt-4">
+                                <a class="btn btn-dark col-md-2"
+                                    href='{{ url("/contact/edit/{$contact->id}") }}'>Editar</a>
+                                <a class="btn btn-danger col-md-2"
+                                    href='{{ url("/contact/delete/{$contact->id}") }}'>Eliminar</a>
+                            </div>
 
+                        </div>
+                    </div>
+
+                </div>
             </div>
         </div>
-    </div>
 
 
-
-
-@endsection
+    @endsection

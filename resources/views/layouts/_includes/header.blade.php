@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
     <!-- Required meta tags -->
@@ -25,14 +25,40 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="{{ route('site.contact.create') }}">Criar Contacto</a>
+                        <a class="nav-link active" aria-current="page" href="{{ route('site.contact.create') }}">Criar
+                            Contacto</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="{{ route('site.contact.index') }}">Lista
                             de Contactos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Iniciar Sessão</a>
+
+
+                        {{-- <div class="font-medium text-base text-gray-800">{{ Auth::user()->name }}</div>
+                            <div class="font-medium text-sm text-gray-500">{{ Auth::user()->email }}</div> --}}
+
+
+                        <!-- Authentication -->
+                        @if (isset(Auth::user()->name))
+
+                            <form method="POST" action="{{ route('logout') }}">
+                                @csrf
+
+                                <a class="nav-link text-danger" href="route('logout')" onclick="event.preventDefault();
+                                        this.closest('form').submit();">
+                                    Terminar sessão
+                                </a>
+                            </form>
+
+                        @else
+                            <a class="nav-link" href="{{ url('login') }}">Iniciar Sessão</a>
+                        @endif
+
+
+
+
+
                     </li>
 
                 </ul>
