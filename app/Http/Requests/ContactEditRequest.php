@@ -27,7 +27,7 @@ class ContactEditRequest extends FormRequest
         return [
             'name' => 'required|min:6',
             'email' => 'email|required',
-            'contact' => 'required|integer|min:9'
+            'contact' => 'required|integer|size:9'
             //
         ];
     }
@@ -43,7 +43,7 @@ class ContactEditRequest extends FormRequest
 
             /* 'contact.unique' => 'O contact que digitou já existe no sistema', */
             'contact.integer' => 'O contacto que digitou não é um número',
-            'contact.min' => 'O tamanho exato de um contacto aceite é 9 digitos',
+            'contact.size' => 'O tamanho exato de um contacto aceite é 9 digitos',
             'contact.required' => 'O campo contacto é obrigatório'
             //
         ];
