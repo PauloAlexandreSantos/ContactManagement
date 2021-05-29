@@ -83,7 +83,7 @@ class ContactController extends Controller
     public function update(ContactPostRequest $request, $id)
     {
         //
-        $request->validated();
+        //$request->validated();
         $data = $request->all();
         Contact::find($id)->update($data);
         return redirect()->route('site.contact.index');
