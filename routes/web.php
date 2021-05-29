@@ -19,7 +19,7 @@ Route::get('/', function () {
 
 //contacts start
 route::get('/contact/home', ['as' => 'site.contact.index', 'uses' => 'ContactController@index']);
-route::get('/details/{id}', ['as' => 'site.contact.details', 'uses' => 'ContactController@show']);
+route::get('/contact/details/{id}', ['as' => 'site.contact.details', 'uses' => 'ContactController@show']);
 
 route::get('/contact/create', ['as' => 'site.contact.create', 'uses' => 'ContactController@create']);
 route::post('/contact/store', ['as' => 'site.contact.store', 'uses' => 'ContactController@store']);

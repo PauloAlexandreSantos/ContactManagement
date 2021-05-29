@@ -16,7 +16,7 @@ class ContactController extends Controller
     {
         //
         $response['contacts'] = Contact::get();
-        return view('site.contact.index', $response);
+        return view('site.contact.list.index', $response);
     }
 
     /**
@@ -42,7 +42,7 @@ class ContactController extends Controller
         //
         $data = $request->all();
         $response = Contact::create($data);
-        return redirect('site.contact.index');
+        return redirect()->route('site.contact.index');
     }
 
     /**
@@ -83,7 +83,7 @@ class ContactController extends Controller
         //
         $data = $request->all();
         Contact::find($id)->update($data);
-        return redirect('site.contact.index');
+        return redirect()->route('site.contact.index');
     }
 
     /**
