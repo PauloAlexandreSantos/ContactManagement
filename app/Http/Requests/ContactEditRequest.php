@@ -4,7 +4,8 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class ContactPostRequest extends FormRequest
+
+class ContactEditRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,12 +26,11 @@ class ContactPostRequest extends FormRequest
     {
         return [
             'name' => 'required|min:6',
-            'email' => 'email|required|unique:contact',
-            'contact' => 'required|integer|min:9|unique:contact'
+            'email' => 'email|required',
+            'contact' => 'required|integer|min:9'
             //
         ];
     }
-    
 
     public function messages()
     {
@@ -39,11 +39,11 @@ class ContactPostRequest extends FormRequest
             'name.min' => 'O campo Nome deve ser preenchido no mínimo com 6 caracteres',
             'email.required' => 'O campo email é obrigatório',
             'email.email' => 'Não colocou um email válido. ex: e@e.e',
-            'email.unique' => 'O email que digitou já existe no sistema',
+            /* 'email.unique' => 'O email que digitou já existe no sistema', */
 
-            'contact.unique' => 'O contact que digitou já existe no sistema',
+            /* 'contact.unique' => 'O contact que digitou já existe no sistema', */
             'contact.integer' => 'O contacto que digitou não é um número',
-            'contact.min' => 'O tamanho mínimo de um contacto aceite é 9 digitos',
+            'contact.min' => 'O tamanho exato de um contacto aceite é 9 digitos',
             'contact.required' => 'O campo contacto é obrigatório'
             //
         ];
